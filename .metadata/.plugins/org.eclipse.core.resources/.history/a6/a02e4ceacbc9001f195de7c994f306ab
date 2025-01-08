@@ -1,0 +1,15 @@
+package com.javaweb.api;
+
+@Controller
+public class BuildingAPI {
+
+	@RequestMapping(value = "/api/building/", method = RequestMethod.GET)
+	public void building(@RequestParam(value = "name", required = false) String name) {
+		System.out.println(name);
+	}
+	
+	@RequestMapping(value="/api/building", method = RequestMethod.POST)
+	public void getBuilding(@RequestBody BuildingDTO buildingDTO) {
+		
+	}
+}
