@@ -15,17 +15,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javaweb.Beans.BuildingDTO;
+import com.javaweb.Model.BuildingDTO;
 import com.javaweb.customException.FieldRequiredException;
+import com.javaweb.service.BuildingService;
 
 @RestController
 public class BuildingAPI {
 
+	
+	private BuildingService buildingService;
 	@GetMapping(value = "/api/building/")
-	public List<BuildingDTO> building(@RequestParam(value = "name", required = false) String name,
-						@RequestParam(value = "ward", required = false) String ward) {
-		
-		return null;
+	public List<BuildingDTO> building(@RequestParam(value = "name") String name) {
+		List<BuildingDTO> result = buildingService.findAll(name);
+		return result;
 	}
 	
 	@PostMapping(value = "/api/building/")
