@@ -24,19 +24,8 @@ public class BuildingAPI {
 	@GetMapping(value = "/api/building/")
 	public List<BuildingDTO> building(@RequestParam(value = "name", required = false) String name,
 						@RequestParam(value = "ward", required = false) String ward) {
-		List<BuildingDTO> results = new ArrayList<> ();
-		BuildingDTO result = new BuildingDTO();
-		result.setName("Phap");
-		result.setWard("The");
-		result.setNumberOfStatement(3);
-		results.add(result);
-		BuildingDTO result1 = new BuildingDTO();
-		result1.setName("Phttap");
-		result1.setWard("Ttthe");
-		result1.setNumberOfStatement(5);
-		results.add(result1);
 		
-		return results;
+		return null;
 	}
 	
 	@PostMapping(value = "/api/building/")
