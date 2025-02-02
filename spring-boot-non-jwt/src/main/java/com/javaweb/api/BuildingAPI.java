@@ -3,6 +3,7 @@ package com.javaweb.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ import com.javaweb.service.BuildingService;
 @RestController
 public class BuildingAPI {
 
-	
+	@Autowired
 	private BuildingService buildingService;
 	@GetMapping(value = "/api/building/")
 	public List<BuildingDTO> building(@RequestParam(value = "name") String name) {

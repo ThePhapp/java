@@ -3,6 +3,7 @@ package com.javaweb.service.Impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaweb.Model.BuildingDTO;
@@ -12,7 +13,8 @@ import com.javaweb.service.BuildingService;
 
 @Service
 public class BuildingServiceImpl implements BuildingService{
-
+	
+	@Autowired
 	private BuildingRepository buildingRepository;
 	@Override
 	public List<BuildingDTO> findAll(String name) {
