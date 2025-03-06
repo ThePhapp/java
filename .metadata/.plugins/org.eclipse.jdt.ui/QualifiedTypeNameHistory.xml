@@ -3,4 +3,7 @@
     <fullyQualifiedTypeName name="com.javaweb.Beans.ErrorResponseDTO"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="com.javaweb.ultils.StringUltil"/>
+    <fullyQualifiedTypeName name="com.javaweb.ultils.NumbersUltil"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
 </qualifiedTypeNameHistroy>

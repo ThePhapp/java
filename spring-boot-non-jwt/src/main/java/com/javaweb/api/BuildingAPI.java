@@ -2,6 +2,7 @@ package com.javaweb.api;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,26 +26,11 @@ public class BuildingAPI {
 
 	@Autowired
 	private BuildingService buildingService;
+	
 	@GetMapping(value = "/api/building/")
-	public List<BuildingDTO> building(@RequestParam(value = "name") String name) {
-		List<BuildingDTO> result = buildingService.findAll(name);
-		return result;
+	public List<BuildingDTO> getBuildings(@RequestParam Map<String, Object> params,
+											@RequestParam(name = "typecode", required = false) List<String> typecode) {
+		List<BuildingDTO> result = buildingService.findAll(params, typecode);
+				return result;
 	}
-	
-	@PostMapping(value = "/api/building/")
-	public Object getBuilding(@RequestBody BuildingDTO building) {
-		isValidate(building);
-		return null;
 	}
-	
-	@DeleteMapping(value = "/api/building/{id}")
-	public void deleteBuilding(@PathVariable Integer id) {
-		System.out.print("Da xoa thanh cong "+ id);
-	}
-	
-	public void isValidate(BuildingDTO buildingDTO) {
-		if(buildingDTO.getName() == null || buildingDTO.getName().equals("") || buildingDTO.getNumberOfStatement() == null) {
-			throw new FieldRequiredException("Field required!");
-		}
-	}
-}

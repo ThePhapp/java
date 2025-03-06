@@ -49,7 +49,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="spring-boot-non-jwt"/>
+			<item value="spring-boot"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -61,10 +61,27 @@
 		</list>
 		<list key="version">
 			<item value="1.0"/>
+			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.overview">
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\phapo\Downloads\New folder"/>
+			<item value="D:\MyWebApp"/>
+			<item value="C:\Users\phapo\Downloads\java-main"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="Excercise"/>
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
 	</section>
 </section>
