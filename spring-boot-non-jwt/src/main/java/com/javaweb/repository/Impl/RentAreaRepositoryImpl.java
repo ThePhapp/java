@@ -26,12 +26,12 @@ public class RentAreaRepositoryImpl implements RentAreaRepository {
 			while (rs.next()) {
 				RentAreaEntity areaEntity = new RentAreaEntity();
 				areaEntity.setValue(rs.getString("value"));
-				
+				rentAreas.add(areaEntity);
 		}
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
-		return null;
+		return rentAreas;
 	}
 
 }
