@@ -33,4 +33,4 @@ public class BuildingAPI {
 		List<BuildingDTO> result = buildingService.findAll(params, typecode);
 				return result;
 	}
-	}
+}

@@ -14,15 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.Entity.BuildingEntity;
+import com.javaweb.ultils.ConnectionJDBCUltil;
 import com.javaweb.ultils.NumbersUltil;
 import com.javaweb.ultils.StringUltil;
 
 @Repository
 public class BuildingRepositoryImpl implements BuildingRepository {
-	static final String DB_URL = "jdbc:mysql://localhost:3306/estatebasic";
-	static final String USER = "root";
-	static final String PASS = "1104205tP";
-	
+
 	public static void joinTable(Map<String, Object> params, List<String> typecode, StringBuilder sql) {
 		String staffId = (String)params.get("staffId");
 		if(StringUltil.checkString(staffId)) {
@@ -100,7 +98,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 		querySpecial(params, typecode, where);
 		sql.append(where);
 		List<BuildingEntity> result = new ArrayList<>();
-		try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		try(Connection conn = ConnectionJDBCUltil.getConnection();
 				Statement stmt = conn.createStatement();
 				ResultSet rs = stmt.executeQuery(sql.toString());) {
 			
@@ -112,7 +110,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 	            buildingEntity.setDistrictid(rs.getLong("districtid")); 
 	            buildingEntity.setStreet(rs.getString("street")); 
 	            buildingEntity.setFloorArea(rs.getLong("floorarea")); 
-	            buildingEntity.setRentPrice(rs.getLong("rentprice")); 
+	          //buildingEntity.setRentPrice(rs.getLong("rentprice")); 
 	            buildingEntity.setServicefee(rs.getString("servicefee")); 
 	            buildingEntity.setBrokerageFee(rs.getLong("brokeragefee")); 
 	            buildingEntity.setManagerName(rs.getString("managername")); 
