@@ -3,9 +3,12 @@ package com.javaweb.converter;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import com.javaweb.builder.BuildingSearchBuilder;
 import com.javaweb.ultils.MapUltil;
 
+@Component
 public class BuildingSearchBuilderConverter {
 
 	public BuildingSearchBuilder toBuildingSearchBuilder(Map<String, Object> params, List<String> typeCode) {
@@ -24,6 +27,6 @@ public class BuildingSearchBuilderConverter {
 																							.setAreaTo(MapUltil.getObject (params, "areato", Long.class)) 
 																							.setStaffId(MapUltil.getObject(params, "staffid", Long.class)) 
 																							.build();
-																							return null;
+			return buildingSearchBuilder;
 	}
 }
