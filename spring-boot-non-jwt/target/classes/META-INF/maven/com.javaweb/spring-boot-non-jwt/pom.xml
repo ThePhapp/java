@@ -16,23 +16,45 @@
 		<displaytag.version>1.2</displaytag.version>
 		<java.version>1.8</java.version>
 	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		
+<dependencies>
+    <!-- Spring Boot Starter Web -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- MySQL Connector -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
-		
-		<dependency>
-    	<groupId>org.modelmapper</groupId>
-   		 <artifactId>modelmapper</artifactId>
-    	<version>3.2.1</version>
-</dependency>
-		
-	</dependencies>
+
+    <!-- ModelMapper (nên dùng phiên bản ổn định hơn) -->
+    <dependency>
+        <groupId>org.modelmapper</groupId>
+        <artifactId>modelmapper</artifactId>
+        <version>2.4.4</version> <!-- Giảm phiên bản để tránh xung đột -->
+    </dependency>
+
+    <!-- Hibernate Core -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.6.15.Final</version>
+    </dependency>
+
+    <!-- Spring Boot Starter JPA -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <!-- Fix xung đột ByteBuddy -->
+    <dependency>
+        <groupId>net.bytebuddy</groupId>
+        <artifactId>byte-buddy</artifactId>
+        <version>1.14.8</version>
+    </dependency>
+</dependencies>
 </project>
