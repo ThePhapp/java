@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.javaweb.Model.BuildingDTO;
 import com.javaweb.Model.BuildingRequestDTO;
 import com.javaweb.customException.FieldRequiredException;
+import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.Entity.BuildingEntity;
 import com.javaweb.repository.Entity.DistrictEntity;
 import com.javaweb.service.BuildingService;
@@ -35,6 +36,9 @@ public class BuildingAPI {
 	@Autowired
 	private BuildingService buildingService;
 	
+	@Autowired
+	private BuildingRepository buildingRepository;
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
@@ -42,6 +46,14 @@ public class BuildingAPI {
 	public List<BuildingDTO> getBuildings(@RequestParam Map<String, Object> params,
 											@RequestParam(name = "typecode", required = false) List<String> typecode) {
 		List<BuildingDTO> result = buildingService.findAll(params, typecode);
+				return result;
+	}
+	
+	@GetMapping(value = "/api/building/{id}")
+	public BuildingDTO getBuildingById(@PathVariable Long id) {
+		BuildingDTO result = new BuildingDTO();
+		BuildingEntity buildingEntity = buildingRepository.findById(id).get();
+		result.setName(buildingEntity.getName());
 				return result;
 	}
 	
@@ -77,9 +89,7 @@ public class BuildingAPI {
 	}
 	
 	@DeleteMapping(value = "/api/building/{id}")
-	@Transactional
-	private void deleteBuilding(@PathVariable Long id) {
-		BuildingEntity buildingEntity = entityManager.find(BuildingEntity.class, id);
-		entityManager.remove(buildingEntity);
+	public void deleteBuilding(@PathVariable Long id) {
+		buildingRepository.deleteById(id);
 	}
 }

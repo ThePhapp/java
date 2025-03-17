@@ -29,7 +29,7 @@ public class BuildingServiceImpl implements BuildingService{
 	public List<BuildingDTO> findAll(Map<String, Object> params, List<String> typecode) {
 		// TODO Auto-generated method stub
 		BuildingSearchBuilder buildingSearchBuilder = buildingSearchBuilderConverter.toBuildingSearchBuilder(params, typecode);
-		List<BuildingEntity> buildingEntities = buildingRepository.findAll(buildingSearchBuilder);
+		List<BuildingEntity> buildingEntities = buildingRepository.findAll();
 		List<BuildingDTO> result = new ArrayList<BuildingDTO>();
 		for(BuildingEntity item : buildingEntities) {
 	            BuildingDTO building = buildingDTOConverter.toBuildingDTO(item);
